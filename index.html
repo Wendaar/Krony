@@ -146,6 +146,49 @@ section{
 .metro{background-image:url("https://raw.githubusercontent.com/Wendaar/Krony/main/metro.png")}
 .icons{background-image:url("https://raw.githubusercontent.com/Wendaar/Krony/main/ikonky.png")}
 
+.map-pin{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#f5c84b;
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 8px 25px rgba(0,0,0,.55);
+  z-index:10;
+  transition:.18s;
+}
+.map-pin::after{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border:2px solid rgba(245,200,75,.45);
+  border-radius:50%;
+  animation:pulse 1.8s infinite;
+}
+.map-pin:hover{
+  transform:translate(-50%,-50%) scale(1.14);
+  background:white;
+}
+@keyframes pulse{
+  0%{transform:scale(.75);opacity:.9}
+  100%{transform:scale(1.45);opacity:0}
+}
+
+/* First rough positions - we can tune after screenshot */
+.icerink{left:77%; top:32%;}
+.party{left:47%; top:57%;}
+.dlouha{left:51%; top:49%;}
+.naplavka{left:43%; top:66%;}
+.riegrovy{left:59%; top:57%;}
+.kohouti{left:61%; top:47%;}
+
 .place-list a{
   display:block;
   text-decoration:none;
@@ -176,6 +219,11 @@ section{
 @media(max-width:900px){
   .map-wrap{grid-template-columns:1fr}
   .map-img{min-height:360px}
+  .map-pin{
+    width:36px;
+    height:36px;
+    font-size:18px;
+  }
 }
 </style>
 </head>
@@ -184,7 +232,9 @@ section{
 
 <header class="hero">
   <img class="logo" src="https://raw.githubusercontent.com/Wendaar/Krony/main/26_Krony_26_Logo.png" alt="Króny Cup 2026 logo">
+
   <h1>Royal Króny Cup 2026</h1>
+
   <div class="subtitle">
     The ultimate beer league hockey weekend in Prague. Ice, friends, stats, streams, Czech hospitality and beautiful trouble.
   </div>
@@ -257,7 +307,6 @@ section{
       <a href="https://prod.hms.wootera.net/embed/games?seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED&lang=en" target="_blank">🏒 Full Games Schedule</a>
       <a href="https://prod.hms.wootera.net/embed/players_stats?lang=en&competitionIds=5D62F800-FE2B-11EE-A812-890701A255FD&seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED" target="_blank">⭐ Player Statistics</a>
       <a href="https://prod.hms.wootera.net/embed/goalies_stats?lang=en&competitionIds=5D62F800-FE2B-11EE-A812-890701A255FD&seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED" target="_blank">🥅 Goalie Statistics</a>
-      <a href="https://www.youtube.com/@praguehockey/streams" target="_blank">📺 Live Streams</a>
     </div>
   </div>
 </section>
@@ -271,6 +320,13 @@ section{
       <div class="map-layer river"></div>
       <div class="map-layer metro"></div>
       <div class="map-layer icons"></div>
+
+      <a class="map-pin icerink" href="https://maps.app.goo.gl/6pUftFyQYYngoRsn9" target="_blank" title="ICERINK Prague">🏒</a>
+      <a class="map-pin party" href="https://maps.app.goo.gl/k8kk8Xj3BdZKqN5JA" target="_blank" title="Radegastovna Perón">🍻</a>
+      <a class="map-pin dlouha" href="https://maps.app.goo.gl/eTxahCFA8W55otJV9" target="_blank" title="Dlouhá Street">🌃</a>
+      <a class="map-pin naplavka" href="https://maps.app.goo.gl/SJmBSXqzfTjZEisH7" target="_blank" title="Náplavka">🌊</a>
+      <a class="map-pin riegrovy" href="https://maps.app.goo.gl/BfbEWQfLCaCcuvcVA" target="_blank" title="Riegrovy sady">📺</a>
+      <a class="map-pin kohouti" href="https://maps.app.goo.gl/Ju3BX4bvoohWAyaD9" target="_blank" title="Dva Kohouti">🍺</a>
     </div>
 
     <div class="place-list">
@@ -288,9 +344,23 @@ section{
   <h2 class="section-title">Social World</h2>
   <div class="section-subtitle">Tag us. We repost beautiful goals, terrible dancing and everything in between.</div>
   <div class="grid three">
-    <div class="card"><h3>📸 Instagram</h3><p>@royalprague</p><a class="btn" href="https://www.instagram.com/royalprague" target="_blank">Open Instagram</a></div>
-    <div class="card"><h3>📺 YouTube</h3><p>Live streams and game videos.</p><a class="btn" href="https://www.youtube.com/@praguehockey/streams" target="_blank">Watch Streams</a></div>
-    <div class="card"><h3>👑 Króny News</h3><p>Stories, updates and all tournament madness.</p><a class="btn" href="https://www.phmcup.cz/krony-news/" target="_blank">Open News</a></div>
+    <div class="card">
+      <h3>📸 Instagram</h3>
+      <p>@royalprague</p>
+      <a class="btn" href="https://www.instagram.com/royalprague" target="_blank">Open Instagram</a>
+    </div>
+
+    <div class="card">
+      <h3>📺 YouTube Streams</h3>
+      <p>Live streams and game videos.</p>
+      <a class="btn" href="https://www.youtube.com/@praguehockey/streams" target="_blank">Watch Streams</a>
+    </div>
+
+    <div class="card">
+      <h3>👑 Króny News</h3>
+      <p>Stories, updates and all tournament madness.</p>
+      <a class="btn" href="https://www.phmcup.cz/krony-news/" target="_blank">Open News</a>
+    </div>
   </div>
 </section>
 
