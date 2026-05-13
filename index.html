@@ -2,185 +2,301 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Royal Króny Cup 2026</title>
 
 <style>
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#111;
-    color:white;
-    overflow-x:hidden;
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#080808;
+  color:white;
 }
+a{color:inherit}
 
 .hero{
-    position:relative;
-    min-height:100vh;
-    background-image:
-        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-        url('https://raw.githubusercontent.com/Wendaar/Krony/main/Background_2.png');
-    background-size:cover;
-    background-position:center;
-    padding:40px;
+  min-height:90vh;
+  padding:40px 7%;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.92)),
+    url("https://raw.githubusercontent.com/Wendaar/Krony/main/Background_2.png");
+  background-size:cover;
+  background-position:center;
 }
-
-.logo{
-    width:220px;
-    max-width:80%;
-}
-
-.hero-content{
-    max-width:1200px;
-    margin:auto;
-    padding-top:40px;
-}
-
+.logo{width:190px;max-width:75%}
 h1{
-    font-size:64px;
-    margin-bottom:10px;
-    text-transform:uppercase;
+  font-size:clamp(42px,7vw,86px);
+  margin:40px 0 10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
-
 .subtitle{
-    font-size:24px;
-    color:#ddd;
-    margin-bottom:40px;
+  font-size:clamp(19px,2.4vw,30px);
+  color:#ddd;
+  max-width:800px;
+}
+.cta-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+.btn{
+  display:inline-block;
+  padding:14px 20px;
+  border-radius:999px;
+  background:#f5c84b;
+  color:#111;
+  font-weight:800;
+  text-decoration:none;
+}
+.btn.secondary{
+  background:rgba(255,255,255,.1);
+  color:white;
+  border:1px solid rgba(255,255,255,.25);
 }
 
-.tiles{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
-    margin-top:50px;
+section{
+  padding:60px 7%;
+}
+.section-title{
+  font-size:clamp(32px,4vw,54px);
+  margin:0 0 10px;
+}
+.section-subtitle{
+  color:#bbb;
+  font-size:18px;
+  margin-bottom:28px;
 }
 
-.tile{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:20px;
-    padding:25px;
-    transition:0.3s;
-    backdrop-filter:blur(6px);
+.grid{
+  display:grid;
+  gap:22px;
+}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.card h3{
+  margin:0 0 14px;
+  font-size:25px;
+}
+.embed-center{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  overflow:hidden;
 }
 
-.tile:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,0.12);
+.leader-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+  align-items:start;
 }
 
-.tile h2{
-    margin-top:0;
-    font-size:28px;
+.quick-links a{
+  display:block;
+  padding:18px;
+  margin:10px 0;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  text-decoration:none;
+  transition:.2s;
+}
+.quick-links a:hover{
+  transform:translateY(-3px);
+  background:rgba(245,200,75,.17);
 }
 
-.tile p{
-    color:#ccc;
+.map-wrap{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:26px;
+  align-items:center;
 }
+.map-img{
+  position:relative;
+  min-height:520px;
+  border-radius:28px;
+  overflow:hidden;
+  background:
+    url("https://raw.githubusercontent.com/Wendaar/Krony/main/%C4%8D%C3%A1stiP.png") center/contain no-repeat,
+    rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);
+}
+.map-layer{
+  position:absolute;
+  inset:0;
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+  pointer-events:none;
+}
+.river{background-image:url("https://raw.githubusercontent.com/Wendaar/Krony/main/vltava.png")}
+.metro{background-image:url("https://raw.githubusercontent.com/Wendaar/Krony/main/metro.png")}
+.icons{background-image:url("https://raw.githubusercontent.com/Wendaar/Krony/main/ikonky.png")}
 
-.tile a{
-    color:#f7c948;
-    text-decoration:none;
-    font-weight:bold;
+.place-list a{
+  display:block;
+  text-decoration:none;
+  margin-bottom:12px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+}
+.place-list strong{
+  display:block;
+  color:#f5c84b;
+  font-size:18px;
+}
+.place-list span{
+  display:block;
+  color:#ccc;
+  margin-top:4px;
 }
 
 .footer{
-    text-align:center;
-    padding:40px;
-    color:#aaa;
+  padding:36px 7%;
+  text-align:center;
+  color:#aaa;
+  background:#050505;
 }
 
-@media(max-width:768px){
-
-    h1{
-        font-size:42px;
-    }
-
-    .subtitle{
-        font-size:18px;
-    }
-
+@media(max-width:900px){
+  .map-wrap{grid-template-columns:1fr}
+  .map-img{min-height:360px}
 }
-
 </style>
-
 </head>
+
 <body>
 
-<section class="hero">
+<header class="hero">
+  <img class="logo" src="https://raw.githubusercontent.com/Wendaar/Krony/main/26_Krony_26_Logo.png" alt="Króny Cup 2026 logo">
+  <h1>Royal Króny Cup 2026</h1>
+  <div class="subtitle">
+    The ultimate beer league hockey weekend in Prague. Ice, friends, stats, streams, Czech hospitality and beautiful trouble.
+  </div>
 
-<div class="hero-content">
+  <div class="cta-row">
+    <a class="btn" href="#dashboard">Open Live Dashboard</a>
+    <a class="btn secondary" href="#map">Explore Prague</a>
+    <a class="btn secondary" href="https://www.instagram.com/royalprague" target="_blank">Instagram</a>
+  </div>
+</header>
 
-<img class="logo"
-src="https://raw.githubusercontent.com/Wendaar/Krony/main/26_Krony_26_Logo.png">
+<section id="dashboard">
+  <h2 class="section-title">Live Tournament Dashboard</h2>
+  <div class="section-subtitle">Standings, games and leaders — everything in one place.</div>
 
-<h1>Royal Króny Cup 2026</h1>
+  <div class="grid two">
+    <div class="card">
+      <h3>Group A Standings</h3>
+      <div class="embed-center">
+        <div style="width:270px;height:270px;overflow:hidden;">
+          <div style="transform:scale(0.45);transform-origin:top left;width:600px;height:600px;">
+            <iframe src="https://prod.hms.wootera.net/embed/ig?phaseIds=54A17040-43AF-11F1-9C41-0F7FAB2B29BC&groupName=A+group&groupColor=%23efe956&seasonName=2026&competitionName=Royal+Kr%C3%B3ny+Cup&competitionLogo=https%3A%2F%2Fprod-hms-wootera.s3.eu-central-1.amazonaws.com%2FCompetition_ROYAL_KRONY_CUP_1gK1YHpWTsh4_cropped_md&fgImgPositionX=0&fgImgPositionY=0&fgImgZoom=100&backgroundMode=IMAGE&backgroundImgUrl=https%3A%2F%2Fprod-hms-wootera.s3.eu-central-1.amazonaws.com%2Ffile-upload%2Finfographics%2Fphm%2Fig5%2F9AE988B528988C78&width=600&height=600&marginTop=40&marginLeft=0&marginRight=0&marginBottom=0&isRolling=false&rollingRowsPerPage=10&rollingIntervalSeconds=5&ig=IG5" width="600" height="600" title="Group A Standings" style="border:none;width:100%;height:100%;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="subtitle">
-The most friendly hockey weekend in Europe 🍻🏒
-</div>
-
-<div class="tiles">
-
-<div class="tile">
-<h2>🏒 Games</h2>
-<p>Full tournament schedule, game times and halls.</p>
-<a href="https://prod.hms.wootera.net/embed/games?seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED&lang=en" target="_blank">
-Open Games →
-</a>
-</div>
-
-<div class="tile">
-<h2>📊 Standings</h2>
-<p>Live standings and group rankings.</p>
-<a href="https://prod.hms.wootera.net/embed/standings?lang=en&competitionIds=5D62F800-FE2B-11EE-A812-890701A255FD&seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED" target="_blank">
-Open Standings →
-</a>
-</div>
-
-<div class="tile">
-<h2>⭐ Player Stats</h2>
-<p>Goals, assists, points and hockey heroes.</p>
-<a href="https://prod.hms.wootera.net/embed/players_stats?lang=en&competitionIds=5D62F800-FE2B-11EE-A812-890701A255FD&seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED" target="_blank">
-Open Stats →
-</a>
-</div>
-
-<div class="tile">
-<h2>🍺 Prague Guide</h2>
-<p>Beer, party places and legendary spots.</p>
-<a href="#">
-Coming Soon →
-</a>
-</div>
-
-<div class="tile">
-<h2>📺 Streams</h2>
-<p>Watch games and ceremonies live.</p>
-<a href="https://www.youtube.com/@praguehockey/streams" target="_blank">
-Watch Live →
-</a>
-</div>
-
-<div class="tile">
-<h2>📸 Social World</h2>
-<p>Photos, reels and tournament chaos.</p>
-<a href="https://www.instagram.com/royalprague" target="_blank">
-Open Instagram →
-</a>
-</div>
- 
-</div>
-
-</div>
-
+    <div class="card">
+      <h3>Group B Standings</h3>
+      <div class="embed-center">
+        <div style="width:270px;height:270px;overflow:hidden;">
+          <div style="transform:scale(0.45);transform-origin:top left;width:600px;height:600px;">
+            <iframe src="https://prod.hms.wootera.net/embed/ig?phaseIds=5F269D60-43AF-11F1-9C41-0F7FAB2B29BC&groupName=B+Group&groupColor=%230b0a0a&seasonName=2026&competitionName=Royal+Kr%C3%B3ny+Cup&competitionLogo=https%3A%2F%2Fprod-hms-wootera.s3.eu-central-1.amazonaws.com%2FCompetition_ROYAL_KRONY_CUP_1gK1YHpWTsh4_cropped_md&fgImgPositionX=0&fgImgPositionY=0&fgImgZoom=100&backgroundMode=IMAGE&backgroundImgUrl=https%3A%2F%2Fprod-hms-wootera.s3.eu-central-1.amazonaws.com%2Ffile-upload%2Finfographics%2Fphm%2Fig5%2F9AE988B528988C78&width=600&height=600&marginTop=40&marginLeft=0&marginRight=0&marginBottom=0&isRolling=false&rollingRowsPerPage=10&rollingIntervalSeconds=5&ig=IG5" width="600" height="600" title="Group B Standings" style="border:none;width:100%;height:100%;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="footer">
-Royal Króny Cup 2026 • Prague • ICERINK
-</div>
+<section>
+  <h2 class="section-title">Tournament Leaders</h2>
+  <div class="section-subtitle">The heroes, snipers and point machines.</div>
+
+  <div class="leader-grid">
+    <div class="card">
+      <h3>Point Leaders</h3>
+      <div class="embed-center">
+        <div style="width:259.6px;height:461.6px;overflow:hidden;">
+          <div style="transform:scale(0.4);transform-origin:top left;width:649px;height:1154px;">
+            <iframe src="https://prod.hms.wootera.net/embed/ig?phaseIds=E400CD50-43B7-11F1-9C41-0F7FAB2B29BC%2C54A17040-43AF-11F1-9C41-0F7FAB2B29BC%2C5F269D60-43AF-11F1-9C41-0F7FAB2B29BC&topCount=20&fgImgPositionX=0&fgImgPositionY=0&fgImgZoom=100&backgroundMode=IMAGE&backgroundImgUrl=https%3A%2F%2Fprod-hms-wootera.s3.eu-central-1.amazonaws.com%2Ffile-upload%2Finfographics%2Fphm%2Fig11%2F57149437755530B1&width=649&height=1154&marginTop=0&marginLeft=0&marginRight=0&marginBottom=0&ig=IG11" width="649" height="1154" title="Point Leaders" style="border:none;width:100%;height:100%;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Goal Leaders</h3>
+      <div class="embed-center">
+        <div style="width:250px;height:444px;overflow:hidden;">
+          <div style="transform:scale(0.4);transform-origin:top left;width:625px;height:1111px;">
+            <iframe src="https://prod.hms.wootera.net/embed/ig?phaseIds=E400CD50-43B7-11F1-9C41-0F7FAB2B29BC%2C54A17040-43AF-11F1-9C41-0F7FAB2B29BC%2C5F269D60-43AF-11F1-9C41-0F7FAB2B29BC&fgImgPositionX=-11&fgImgPositionY=-45&fgImgZoom=100&backgroundMode=IMAGE&backgroundImgUrl=https%3A%2F%2Fprod-hms-wootera.s3.eu-central-1.amazonaws.com%2Ffile-upload%2Finfographics%2Fphm%2Fig12%2F5E087650E7305394&width=625&height=1111&marginTop=0&marginLeft=0&marginRight=0&marginBottom=0&ig=IG12" width="625" height="1111" title="Goal Leaders" style="border:none;width:100%;height:100%;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card quick-links">
+      <h3>More Live Data</h3>
+      <a href="https://prod.hms.wootera.net/embed/games?seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED&lang=en" target="_blank">🏒 Full Games Schedule</a>
+      <a href="https://prod.hms.wootera.net/embed/players_stats?lang=en&competitionIds=5D62F800-FE2B-11EE-A812-890701A255FD&seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED" target="_blank">⭐ Player Statistics</a>
+      <a href="https://prod.hms.wootera.net/embed/goalies_stats?lang=en&competitionIds=5D62F800-FE2B-11EE-A812-890701A255FD&seasonId=77A6BA20-92FA-11F0-8961-43B81D541DED" target="_blank">🥅 Goalie Statistics</a>
+      <a href="https://www.youtube.com/@praguehockey/streams" target="_blank">📺 Live Streams</a>
+    </div>
+  </div>
+</section>
+
+<section id="map">
+  <h2 class="section-title">Prague Playground Map</h2>
+  <div class="section-subtitle">Ice, beer & beautiful trouble. Click your destination.</div>
+
+  <div class="map-wrap">
+    <div class="map-img">
+      <div class="map-layer river"></div>
+      <div class="map-layer metro"></div>
+      <div class="map-layer icons"></div>
+    </div>
+
+    <div class="place-list">
+      <a href="https://maps.app.goo.gl/6pUftFyQYYngoRsn9" target="_blank"><strong>🏒 ICERINK Prague</strong><span>Tournament venue</span></a>
+      <a href="https://maps.app.goo.gl/k8kk8Xj3BdZKqN5JA" target="_blank"><strong>🍻 Radegastovna Perón</strong><span>Króny Party</span></a>
+      <a href="https://maps.app.goo.gl/eTxahCFA8W55otJV9" target="_blank"><strong>🌃 Dlouhá Street</strong><span>The fun street</span></a>
+      <a href="https://maps.app.goo.gl/SJmBSXqzfTjZEisH7" target="_blank"><strong>🌊 Náplavka</strong><span>River bank promenade</span></a>
+      <a href="https://maps.app.goo.gl/BfbEWQfLCaCcuvcVA" target="_blank"><strong>📺 Riegrovy sady</strong><span>World Cup Hockey Watch Party</span></a>
+      <a href="https://maps.app.goo.gl/Ju3BX4bvoohWAyaD9" target="_blank"><strong>🍺 Dva Kohouti</strong><span>Cool beer spot</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Social World</h2>
+  <div class="section-subtitle">Tag us. We repost beautiful goals, terrible dancing and everything in between.</div>
+  <div class="grid three">
+    <div class="card"><h3>📸 Instagram</h3><p>@royalprague</p><a class="btn" href="https://www.instagram.com/royalprague" target="_blank">Open Instagram</a></div>
+    <div class="card"><h3>📺 YouTube</h3><p>Live streams and game videos.</p><a class="btn" href="https://www.youtube.com/@praguehockey/streams" target="_blank">Watch Streams</a></div>
+    <div class="card"><h3>👑 Króny News</h3><p>Stories, updates and all tournament madness.</p><a class="btn" href="https://www.phmcup.cz/krony-news/" target="_blank">Open News</a></div>
+  </div>
+</section>
+
+<footer class="footer">
+  Royal Króny Cup 2026 • Prague • ICERINK • Hockey, beer & friends
+</footer>
 
 </body>
 </html>
